@@ -4,7 +4,6 @@ import NavBar from "../NavBar/NavBar";
 import Home from "../Home/Home";
 import SeeVacations from "../SeeVacations/SeeVacations";
 import "./App.css";
-import Form from "../Form/Form";
 
 class App extends Component {
   render() {
