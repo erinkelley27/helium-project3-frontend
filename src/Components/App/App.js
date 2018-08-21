@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
-import {
-  Route,
-  Switch 
-} from 'react-router-dom'
-import NavBar from '../NavBar/NavBar'
+import {Route, Switch, Link} from 'react-router-dom'
 import Home from '../Home/Home'
 import SeeVacations from '../SeeVacations/SeeVacations'
-import './App.css';
 import Profile from '../Profile/Profile'
-import {BrowserRouter as Router} from 'react-router-dom'
+import './App.css';
+
 
 class App extends Component {
   constructor (props){
@@ -41,7 +37,7 @@ class App extends Component {
               "image": "https://s25.postimg.cc/m2v8b12wv/article-philly.png"
           },
           {
-              "symbol": "PA",
+              "symbol": "PR",
               "city": "Paris, France",
               "tagline": "City of Love",
               "image": "https://s25.postimg.cc/hgz42p4j3/article-paris.jpg"
@@ -58,31 +54,19 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <NavBar />
+      <div className ="App">
+         <nav>
+            <ul>
+             <li><Link to="/home">Home</Link></li>
+             <li><Link to="/see-vacations">See Vacations</Link></li>
+            </ul>
+        </nav>
         <main>
         <Switch>
-        <Route path='/see-vacations'
-              render={(routerProps) => {
-                return (
-               <SeeVacations {...routerProps} {...this.state}/>
-                )
-              }}
-            />
-          <Route
-                path="/see-vacations/:id"
-                render={(routerProps) => {
-                  return (
-                 <Profile {...routerProps} {...this.state}/>
-                  )
-                  }}
-                 />
-          <Route
-            path="/home"
-            component={Home}
-            
-              /> 
-          </Switch>
+            <Route exact path="/see-vacations" render={() => <SeeVacations cityData={this.state.cityData} />} />  
+           <Route path="/see-vacations/:symbol" render={(props) => <Profile {...props} cityData={this.state.cityData} />} />
+           <Route path="/home" component={Home} />
+        </Switch>
 
         </main>
       </div>
