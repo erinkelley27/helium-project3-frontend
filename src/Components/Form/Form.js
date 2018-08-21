@@ -44,13 +44,50 @@ class Form extends Component {
             </label>
             <br />
             <label>
-              Things to do:
+              Sightsee:
               <input
                 type="text"
                 value={this.state.things}
                 onChange={this.handleChange}
               />
             </label>
+            <br />
+            <label>
+              Restaurant:
+              <input
+                type="text"
+                value={this.state.things}
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <label>
+              Accomodation:
+              <input
+                type="text"
+                value={this.state.things}
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <label>
+              A Romantic Place:
+              <input
+                type="text"
+                value={this.state.things}
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
+            <label>
+              Image:
+              <input
+                type="text"
+                value={this.state.things}
+                onChange={this.handleChange}
+              />
+            </label>
+            <br />
             <input type="submit" value="Submit" />
           </form>
         </main>
