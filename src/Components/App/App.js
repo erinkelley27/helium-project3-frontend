@@ -7,6 +7,7 @@ import NavBar from '../NavBar/NavBar'
 import Home from '../Home/Home'
 import SeeVacations from '../SeeVacations/SeeVacations'
 import './App.css';
+import Profile from '../Profile/Profile'
 
 class App extends Component {
   render() {
@@ -22,7 +23,6 @@ class App extends Component {
                 )
               }}
             />
-          </Switch>
           <Route
             path="/"
             render={(props) => {
@@ -31,7 +31,17 @@ class App extends Component {
               )
             }}
 
-           />
+           /> 
+           <Route
+               path="/see-vacations/profile"
+               render={(props) => {
+                return (
+                     <Profile /> 
+                 
+                   )
+                }} />
+
+           </Switch>
         </main>
       </div>
 
