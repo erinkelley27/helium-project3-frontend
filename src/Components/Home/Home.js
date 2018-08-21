@@ -8,7 +8,10 @@ import {
 class Home extends Component {
     render() {
       return (
+      <div>
        <h1> Welcome To Love Away Vacations</h1>
+      </div>
+
       );
     }
   }

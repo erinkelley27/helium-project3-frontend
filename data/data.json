@@ -1,0 +1,33 @@
+
+[
+    {
+        "city": "Philadelphia, PA",
+        "tagline": "City of Brotherly Love",
+        "image": "https://s25.postimg.cc/m2v8b12wv/article-philly.png"
+    },
+    {
+        "city": "Chengdu, China",
+        "tagline": "Land of Abundance",
+        "image": "https://s22.postimg.cc/6s2i8ebgh/article-chengdu.jpg"
+    },
+    {
+        "city": "Chiang Mai, Thailand",
+        "tagline": "Flame of the Forest",
+        "image": "https://s25.postimg.cc/m2v8b12wv/article-philly.png"
+    },
+    {
+        "city": "Barcelona, Spain",
+        "tagline": "More than a City",
+        "image": "https://s25.postimg.cc/m2v8b12wv/article-philly.png"
+    },
+    {
+        "city": "Paris, France",
+        "tagline": "City of Love",
+        "image": "https://s25.postimg.cc/m2v8b12wv/article-philly.png"
+    },
+    {
+        "city": "Cebu, Philippines",
+        "tagline": "Experience the Philippines",
+        "image": "https://s25.postimg.cc/m2v8b12wv/article-philly.png"
+    }  
+]

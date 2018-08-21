@@ -10,7 +10,7 @@ class NavBAr extends Component {
       return (
         <nav>
             <ul>
-             <li><Link to="/">Home</Link></li>
+             <li><Link to="/home">Home</Link></li>
              <li><Link to="/see-vacations">See Vacations</Link></li>
             </ul>
         </nav>
