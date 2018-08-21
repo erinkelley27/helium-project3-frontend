@@ -7,7 +7,7 @@ class SeeVacations extends Component {
   render() {
     let vacationOption = this.props.cityData.map(item => {
       return(
-        <div className='city' key={item.symbol}>
+        <div className='col s4' key={item.symbol}>
         <div className="image">
         <Link to={'/see-vacations/' + item.symbol}><img src={item.image}></img></Link>
         <h2> {item.city}</h2>
@@ -16,7 +16,7 @@ class SeeVacations extends Component {
       )
     })
     return (
-      <div>
+      <div class="row">
         {vacationOption}
       </div>
     );
