@@ -8,9 +8,10 @@ import {
 class Profile extends Component {
     render() {
       return (
-
+        <div>
            <h1> Hello Profile </h1>
-    
+           
+        </div>
       );
     }
   }

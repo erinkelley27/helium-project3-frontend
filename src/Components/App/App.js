@@ -8,6 +8,7 @@ import Home from '../Home/Home'
 import SeeVacations from '../SeeVacations/SeeVacations'
 import './App.css';
 import Profile from '../Profile/Profile'
+import {BrowserRouter as Router} from 'react-router-dom'
 
 class App extends Component {
   render() {
@@ -19,7 +20,7 @@ class App extends Component {
         <Route path='/see-vacations'
               render={(props) => {
                 return (
-                  <SeeVacations />
+               <SeeVacations />
                 )
               }}
             />
@@ -33,15 +34,10 @@ class App extends Component {
 
            /> 
            <Route
-               path="/see-vacations/profile"
-               render={(props) => {
-                return (
-                     <Profile /> 
-                 
-                   )
-                }} />
-
-           </Switch>
+                path="/see-vacations/profile"
+                component={Profile}
+                  />
+          </Switch>
         </main>
       </div>
 
