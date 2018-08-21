@@ -1,5 +1,4 @@
 
-
 import React, { Component } from "react";
 import { Route, Switch, Link } from "react-router-dom";
 import "./SeeVacations.css";
@@ -34,12 +33,12 @@ class SeeVacations extends Component {
           </div>
           <div class="image">
             <img src="https://s25.postimg.cc/8ly9s5kvj/article-barcelona.jpg" alt="Barcelona" />
+            
             <h2>Barcelona</h2>
           </div>
         </div>
       </div>
     );
-
   }
 }
 
