@@ -19,13 +19,13 @@ class App extends Component {
                 return <SeeVacations />;
               }}
             />
+            <Route
+              path="/"
+              render={props => {
+                return <Home />;
+              }}
+            />
           </Switch>
-          <Route
-            path="/"
-            render={props => {
-              return <Home />;
-            }}
-          />
         </main>
       </div>
     );
