@@ -3,7 +3,7 @@ import { Route, Switch, Link } from 'react-router-dom'
 
 import Home from '../Home/Home'
 import SeeVacations from '../SeeVacations/SeeVacations'
-// import SignUpForm from '../SignUpForm/SignUpForm'
+import SignUpForm from '../SignUpForm/SignUpForm'
 // import LogInForm from '../LogInForm/LogInForm'
 // import LogOut from '../LogOut/LogOut'
 import axios from 'axios'
@@ -20,10 +20,10 @@ class App extends Component {
       password: '',
       isLoggedIn: false
     }
-    this.handleLogOut = this.handleLogOut.bind(this)
-    this.handleInput = this.handleInput.bind(this)
-    this.handleLogIn = this.handleLogIn.bind(this)
-    this.handleSignUp = this.handleSignUp.bind(this)
+    // this.handleLogOut = this.handleLogOut.bind(this)
+    // this.handleInput = this.handleInput.bind(this)
+    // this.handleLogIn = this.handleLogIn.bind(this)
+    // this.handleSignUp = this.handleSignUp.bind(this)
   }
   render () {
     return (
@@ -37,10 +37,10 @@ class App extends Component {
               <Link to='/see-vacations'>See Vacations</Link>
             </li>
             <li>
-              <Link to='/signup'>See Vacations</Link>
+              <Link to='/signup'>Sign Up</Link>
             </li>
             <li>
-              <Link to='/login'>See Vacations</Link>
+              <Link to='/login'>Log In</Link>
             </li>
           </ul>
         </nav>
@@ -54,6 +54,11 @@ class App extends Component {
               exact
               path='/see-vacations'
               render={(routerProps) => <SeeVacations {...routerProps} {...this.state} />}
+            />
+            <Route
+              exact
+              path='/signup'
+              component={SignUpForm}
             />
           </Switch>
         </main>
