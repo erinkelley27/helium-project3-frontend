@@ -3,7 +3,8 @@ import { Route, Switch, Link } from "react-router-dom";
 import Home from "../Home/Home";
 import SeeVacations from "../SeeVacations/SeeVacations";
 import Profile from "../Profile/Profile";
-import axios from 'axios'
+import axios from "axios";
+import FormCreate from "../FormCreate/FormCreate";
 
 import Form from "../Form/Form";
 // import seedData from "../data/data.json";
@@ -16,17 +17,19 @@ class App extends Component {
       cityData: []
     };
   }
-  componentDidMount(){
-      axios.get('http://localhost:3001/api/helium/locations')
-      .then((res)=>{
-          console.log(res.data)
-          this.setState({
-              cityData: res.data
-          })
-        }).catch((err)=>{
-            console.log(err)
-  })
-}
+  componentDidMount() {
+    axios
+      .get("http://localhost:3001/api/helium/locations")
+      .then(res => {
+        console.log(res.data);
+        this.setState({
+          cityData: res.data
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
   render() {
     return (
@@ -39,6 +42,9 @@ class App extends Component {
             <li>
               <Link to="/see-vacations">See Vacations</Link>
             </li>
+            <li>
+              <Link to="/form-create">Create Form</Link>
+            </li>
           </ul>
         </nav>
         <main>
@@ -46,17 +52,36 @@ class App extends Component {
             <Route
               exact
               path="/see-vacations"
-              render={(routerProps) => <SeeVacations {...routerProps}{...this.state} />}
+              render={routerProps => (
+                <SeeVacations {...routerProps} {...this.state} />
+              )}
             />
             <Route
               path="/see-vacations/:symbol"
-              render={(routerProps) => <Profile {...routerProps}{...this.state}/>}
+              render={routerProps => (
+                <Profile {...routerProps} {...this.state} />
+              )}
             />
-            
+
             <Route
               path="/home"
               render={props => (
                 <Home {...props} cityData={this.state.cityData} />
+              )}
+            />
+
+            <Route
+              path="/form-create"
+              render={props => (
+                <Home {...props} cityData={this.state.cityData} />
+              )}
+            />
+
+            <Route
+              exact
+              path="/form-create"
+              render={routerProps => (
+                <FormCreate {...routerProps} {...this.state} />
               )}
             />
           </Switch>
