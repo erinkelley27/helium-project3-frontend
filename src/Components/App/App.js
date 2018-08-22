@@ -29,13 +29,19 @@ class App extends Component {
   componentDidMount () {
     if (localStorage.token) {
       this.setState({
-        isLogginIn: true
+        isLoggedIn: true
       })
     } else {
       this.setState({
         isLoggedIn: false
       })
     }
+  }
+
+  handleInput (e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
   }
 
   render () {
