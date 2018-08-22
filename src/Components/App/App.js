@@ -13,7 +13,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cityData: {}
+      cityData: []
     };
   }
   componentDidMount(){
@@ -46,15 +46,13 @@ class App extends Component {
             <Route
               exact
               path="/see-vacations"
-              render={() => <SeeVacations cityData={this.state.cityData} />}
+              render={(routerProps) => <SeeVacations {...routerProps}{...this.state} />}
             />
             <Route
               path="/see-vacations/:symbol"
-              render={props => (
-                <Profile {...props} cityData={this.state.cityData} />
-              )}
+              render={(routerProps) => <Profile {...routerProps}{...this.state}/>}
             />
-            {/* <Route path="/see-vacations/:symbol/form" render={(props) => <Form {...props} cityData={this.state.cityData} />} /> */}
+            
             <Route
               path="/home"
               render={props => (

@@ -7,9 +7,9 @@ import {
 
 class Profile extends Component {
   
+  
     render() {
       let profile = this.props.cityData.find((profile)=> profile.symbol === this.props.match.params.symbol)
-      console.log(profile.tagline)
       return (
         <div>
          <p>{profile.city}</p>

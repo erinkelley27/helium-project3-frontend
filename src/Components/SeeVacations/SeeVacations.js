@@ -6,6 +6,7 @@ import "./SeeVacations.css";
 class SeeVacations extends Component {
   render() {
     let vacationOption = this.props.cityData.map(item => {
+      console.log(item.symbol)
       return(
         <div className='col s4' key={item.symbol}>
         <div className="image">
@@ -16,7 +17,7 @@ class SeeVacations extends Component {
       )
     })
     return (
-      <div class="row">
+      <div className="row">
         {vacationOption}
       </div>
     );
