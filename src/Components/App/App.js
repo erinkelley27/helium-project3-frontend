@@ -4,8 +4,8 @@ import { Route, Switch, Link } from 'react-router-dom'
 import Home from '../Home/Home'
 import SeeVacations from '../SeeVacations/SeeVacations'
 import SignUpForm from '../SignUpForm/SignUpForm'
-// import LogInForm from '../LogInForm/LogInForm'
-// import LogOut from '../LogOut/LogOut'
+import LogInForm from '../LogInForm/LogInForm'
+import LogOut from '../LogOut/LogOut'
 import axios from 'axios'
 
 import Form from '../Form/Form'
@@ -21,7 +21,7 @@ class App extends Component {
       isLoggedIn: false
     }
     // this.handleLogOut = this.handleLogOut.bind(this)
-    // this.handleInput = this.handleInput.bind(this)
+    this.handleInput = this.handleInput.bind(this)
     // this.handleLogIn = this.handleLogIn.bind(this)
     // this.handleSignUp = this.handleSignUp.bind(this)
   }
@@ -59,6 +59,9 @@ class App extends Component {
               <Link to='/signup'>Sign Up</Link>
             </li>
             <li>
+              <Link to='/logout'>Log Out</Link>
+            </li>
+            <li>
               <Link to='/login'>Log In</Link>
             </li>
           </ul>
@@ -75,9 +78,28 @@ class App extends Component {
               render={(routerProps) => <SeeVacations {...routerProps} {...this.state} />}
             />
             <Route
-              exact
               path='/signup'
-              component={SignUpForm}
+              render={(props) => {
+                return (
+                  <SignUpForm isLoggedIn={this.state.isLoggedIn} handleInput={this.handleInput} handleSignUp={this.handleSignUp} />
+                )
+              }}
+            />
+            <Route
+              path='/logout'
+              render={(props) => {
+                return (
+                  <LogOut isLoggedIn={this.state.isLoggedIn} handleLogOut={this.handleLogOut} />
+                )
+              }}
+            />
+            <Route
+              path='/login'
+              render={(props) => {
+                return (
+                  <LogInForm isLoggedIn={this.state.isLoggedIn} handleInput={this.handleInput} handleLogIn={this.handleLogIn} />
+                )
+              }}
             />
           </Switch>
         </main>
