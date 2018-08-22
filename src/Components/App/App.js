@@ -36,6 +36,12 @@ class App extends Component {
             <li>
               <Link to='/see-vacations'>See Vacations</Link>
             </li>
+            <li>
+              <Link to='/signup'>See Vacations</Link>
+            </li>
+            <li>
+              <Link to='/login'>See Vacations</Link>
+            </li>
           </ul>
         </nav>
         <main>
