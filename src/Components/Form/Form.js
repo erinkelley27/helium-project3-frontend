@@ -20,6 +20,7 @@ class Form extends Component {
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
   addVacationData(){
+    var location = document.querySelector('#sightsee').value1
     var  sightsee = document.querySelector('#sightsee').value
     var restaurant = document.querySelector('#restaurant').value
     var accommodation = document.querySelector('#accommodation').value
