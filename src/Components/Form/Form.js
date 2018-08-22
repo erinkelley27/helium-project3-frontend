@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Route, Switch, Link } from "react-router-dom";
-import Home from "../Home/Home";
-import "./Form.css";
+
+
+import axios from "axios";
 
 class Form extends Component {
   constructor(props) {
@@ -16,18 +16,45 @@ class Form extends Component {
         image: String
       }
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
+  addVacationData(){
+    var  sightsee = document.querySelector('#sightsee').value
+    var restaurant = document.querySelector('#restaurant').value
+    var accommodation = document.querySelector('#accommodation').value
+    var romanticPlace = document.querySelector('#romanticPlace').value
+    var image = document.querySelector('#image').value
+    axios({
+        method: 'post',
+        url: 'http://localhost:3001/api/helium',
+        data: {
+        sightsee: sightsee,
+        restaurant: restaurant,
+        accommodation: accommodation,
+        romanticPlace: romanticPlace,
+        image: image
+      },
+        config: { headers: {'Content-Type': 'multipart/form-data' }}
+        })
+        .then(function (response) {
+            //handle success
+            console.log(response);
+        })
+        .catch(function (response) {
+            //handle error
+            console.log(response);
+        });
+}
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
-  }
+  // handleChange(event) {
+  //   this.setState({ value: event.target.value });
+  // }
 
-  handleSubmit(event) {
-    alert("A post was submitted: " + this.state.value);
-    event.preventDefault();
-  }
+  // handleSubmit(event) {
+  //   alert("A post was submitted: " + this.state.value);
+  //   event.preventDefault();
+  // }
 
   render() {
     return (
@@ -38,8 +65,7 @@ class Form extends Component {
               Location:
               <input
                 type="text"
-                value={this.state.location}
-                onChange={this.handleChange}
+                id="sightsee"
               />
             </label>
             <br />
@@ -47,17 +73,16 @@ class Form extends Component {
               Sightsee:
               <input
                 type="text"
-                value={this.state.things}
-                onChange={this.handleChange}
+                id="sightsee"
+                
               />
             </label>
             <br />
             <label>
               Restaurant:
               <input
-                type="text"
-                value={this.state.things}
-                onChange={this.handleChange}
+              type="text"
+              id="restaurant"
               />
             </label>
             <br />
@@ -65,8 +90,7 @@ class Form extends Component {
               Accomodation:
               <input
                 type="text"
-                value={this.state.things}
-                onChange={this.handleChange}
+                id="accommodation"
               />
             </label>
             <br />
@@ -74,8 +98,8 @@ class Form extends Component {
               A Romantic Place:
               <input
                 type="text"
-                value={this.state.things}
-                onChange={this.handleChange}
+                id="romanticPlace"
+                
               />
             </label>
             <br />
@@ -83,12 +107,11 @@ class Form extends Component {
               Image:
               <input
                 type="text"
-                value={this.state.things}
-                onChange={this.handleChange}
+                id="image"
               />
             </label>
             <br />
-            <input type="submit" value="Submit" />
+            <input onClick={this.addVacationData.bind(this)} type="submit" value="Submit" />
           </form>
         </main>
       </div>
