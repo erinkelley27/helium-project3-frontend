@@ -3,10 +3,9 @@ import { Route, Switch, Link } from "react-router-dom";
 import Home from "../Home/Home";
 import SeeVacations from "../SeeVacations/SeeVacations";
 import Profile from "../Profile/Profile";
+import FormCreate from "../FormCreate/FormCreate";
 import axios from 'axios'
-
 import Form from "../Form/Form";
-// import seedData from "../data/data.json";
 import "./App.css";
 
 class App extends Component {
@@ -39,6 +38,9 @@ class App extends Component {
             <li>
               <Link to="/see-vacations">See Vacations</Link>
             </li>
+            <li>
+              <Link to="/form-create">Create Form</Link>
+            </li>
           </ul>
         </nav>
         <main>
@@ -50,7 +52,7 @@ class App extends Component {
             />
             <Route
               path="/see-vacations/:symbol"
-              render={(routerProps) => <Profile {...routerProps}{...this.state}/>}
+              render={(routerProps) => <Profile {...routerProps}{...this.state}/>} //Work on this in a second. 
             />
             
             <Route
@@ -58,6 +60,14 @@ class App extends Component {
               render={props => (
                 <Home {...props} cityData={this.state.cityData} />
               )}
+            />
+            <Route
+              path="/form-create"
+              render={(routerProps) => <FormCreate {...routerProps}{...this.state} />}
+            />
+            <Route
+              path="/form-create/:symbol"
+              render={(routerProps) => <Form {...routerProps}{...this.state} />}
             />
           </Switch>
         </main>
