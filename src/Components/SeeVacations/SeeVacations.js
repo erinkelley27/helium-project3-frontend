@@ -1,27 +1,55 @@
 
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import "./SeeVacations.css";
+import React, { Component } from 'react'
+import { Route, Link } from 'react-router-dom'
+import './SeeVacations.css'
+import axios from 'axios'
+import Profile from '../Profile/Profile';
 
 class SeeVacations extends Component {
-  render() {
-    let vacationOption = this.props.cityData.map(item => {
+  constructor (props) {
+    super(props)
+    this.state = {
+      cityData: []
+    }
+  }
+  componentDidMount () {
+    axios.get('http://localhost:3001/api/helium/locations')
+      .then((res) => {
+        console.log(res.data)
+        this.setState({
+          cityData: res.data
+        })
+      }).catch((err) => {
+        console.log(err)
+      })
+  }
+
+  render () {
+    let vacationOption = this.state.cityData.map(item => {
       console.log(item.symbol)
-      return(
+      return (
         <div className='col s4' key={item.symbol}>
-        <div className="image">
-        <Link to={'/see-vacations/' + item.symbol}><img src={item.image}></img></Link>
-        <h2> {item.city}</h2>
-        </div>
+          <div className='image'>
+            <Link to={'/see-vacations/' + item.symbol}>
+              <img src={item.image} />
+            </Link>
+            <h2> {item.city}</h2>
+          </div>
+          <div className='profile-path'>
+            <Route
+              path={'/see-vacations/:symbol'}
+              render={(routerProps) => <Profile {...routerProps} {...this.state} />}
+            />
+          </div>
         </div>
       )
     })
     return (
-      <div className="row">
+      <div className='row'>
         {vacationOption}
       </div>
-    );
+    )
   }
 }
 
-export default SeeVacations;
+export default SeeVacations
