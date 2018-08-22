@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import { Route, Switch, Link } from "react-router-dom";
-import Form from "../Form/Form";
+import "./Home.css";
 
 class Home extends Component {
   render() {
     return (
-      <Form>
-        <h1> Welcome To Love Away Vacations &hearts; </h1>
-      </Form>
+      <div>
+        <h1> Welcome To Love Away Vacations</h1>
+        <img
+          class="home"
+          src="https://s25.postimg.cc/8ly9s5kvj/article-barcelona.jpg"
+        />
+      </div>
     );
   }
 }

@@ -1,28 +1,51 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
-import NavBar from "../NavBar/NavBar";
+import { Route, Switch, Link } from "react-router-dom";
 import Home from "../Home/Home";
 import SeeVacations from "../SeeVacations/SeeVacations";
+import Profile from "../Profile/Profile";
+import Form from "../Form/Form";
+import seedData from "../data/data.json";
 import "./App.css";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cityData: seedData
+    };
+  }
   render() {
     return (
       <div className="App">
-        <NavBar />
+        <nav>
+          <ul>
+            <li>
+              <Link to="/home">Home</Link>
+            </li>
+            <li>
+              <Link to="/see-vacations">See Vacations</Link>
+            </li>
+          </ul>
+        </nav>
         <main>
           <Switch>
             <Route
+              exact
               path="/see-vacations"
-              render={props => {
-                return <SeeVacations />;
-              }}
+              render={() => <SeeVacations cityData={this.state.cityData} />}
             />
             <Route
-              path="/"
-              render={props => {
-                return <Home />;
-              }}
+              path="/see-vacations/:symbol"
+              render={props => (
+                <Profile {...props} cityData={this.state.cityData} />
+              )}
+            />
+            {/* <Route path="/see-vacations/:symbol/form" render={(props) => <Form {...props} cityData={this.state.cityData} />} /> */}
+            <Route
+              path="/home"
+              render={props => (
+                <Home {...props} cityData={this.state.cityData} />
+              )}
             />
           </Switch>
         </main>
