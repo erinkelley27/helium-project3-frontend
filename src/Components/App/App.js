@@ -1,16 +1,14 @@
 import React, { Component } from 'react'
-import { Route, Switch, Link } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
+import axios from 'axios'
 
 import Nav from '../Nav/Nav'
 import Home from '../Home/Home'
 import SeeVacations from '../SeeVacations/SeeVacations'
 import SignUpForm from '../SignUpForm/SignUpForm'
-import LogInForm from '../LogInForm/LogInForm'
-import LogOut from '../LogOut/LogOut'
-import axios from 'axios'
-
-import Form from '../Form/Form'
-// import seedData from "../data/data.json";
+// import LogInForm from '../LogInForm/LogInForm'
+// import LogOut from '../LogOut/LogOut'
+// import Form from '../Form/Form'
 import './App.css'
 
 class App extends Component {
@@ -24,7 +22,7 @@ class App extends Component {
     // this.handleLogOut = this.handleLogOut.bind(this)
     this.handleInput = this.handleInput.bind(this)
     // this.handleLogIn = this.handleLogIn.bind(this)
-    // this.handleSignUp = this.handleSignUp.bind(this)
+    this.handleSignUp = this.handleSignUp.bind(this)
   }
 
   componentDidMount () {
@@ -43,6 +41,19 @@ class App extends Component {
     this.setState({
       [e.target.name]: e.target.value
     })
+  }
+
+  handleSignUp (e) {
+    e.preventDefault()
+    axios.post('http://localhost:3001/user/signup', {
+      email: this.state.email,
+      password: this.state.password
+    })
+      .then(response => {
+        localStorage.token = response.data.token
+        this.setState({ isLoggedIn: true })
+      })
+      .catch(err => console.log(err))
   }
 
   render () {
@@ -70,7 +81,7 @@ class App extends Component {
                 )
               }}
             />
-            <Route
+            {/* <Route
               path='/logout'
               render={(props) => {
                 return (
@@ -85,7 +96,7 @@ class App extends Component {
                   <LogInForm isLoggedIn={this.state.isLoggedIn} handleInput={this.handleInput} handleLogIn={this.handleLogIn} />
                 )
               }}
-            />
+            /> */}
           </Switch>
         </main>
       </div>

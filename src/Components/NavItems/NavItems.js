@@ -4,7 +4,7 @@ import { Route, Switch, Link } from 'react-router-dom'
 class NavItems extends Component {
   render () {
     if (this.props.isLoggedIn) {
-      return(
+      return (
         <div className='navLoggedIn'>
           <ul>
             <li>
@@ -14,8 +14,8 @@ class NavItems extends Component {
         </div>
       )
     } else {
-      return(
-        <div className='notLoggedIn'>
+      return (
+        <div className='navNotLoggedIn'>
           <ul>
             <li>
               <Link to='/signup'>Sign Up</Link>
