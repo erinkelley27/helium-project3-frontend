@@ -14,7 +14,7 @@ class Nav extends Component {
             <Link to='/see-vacations'>See Vacations</Link>
           </li>
         </ul>
-        <NavItems />
+        <NavItems isLoggedIn={this.props.isLoggedIn} />
       </div>
     )
   }
