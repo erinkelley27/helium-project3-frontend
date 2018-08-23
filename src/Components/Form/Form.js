@@ -3,14 +3,13 @@ import React, { Component } from "react";
 
 import axios from "axios";
 
-      
 class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
       Location: String,
       Things2Do: {
-        title: String,
+        city: String,
         sightsee: String,
         restaurant: String,
         accommodation: String,
@@ -19,11 +18,8 @@ class Form extends Component {
       }
     };
   }
-
-
   updateVacationData(){
     var title = document.querySelector('#title').value
-    var location = document.querySelector('#sightsee').value
     var  sightsee = document.querySelector('#sightsee').value
     var restaurant = document.querySelector('#restaurant').value
     var accommodation = document.querySelector('#accommodation').value
@@ -33,7 +29,7 @@ class Form extends Component {
       method: 'put',
       url: 'http://localhost:3001/api/helium/things2do',
       data: {
-        title: title,
+        city: title,
         sightsee: sightsee,
         restaurant: restaurant,
         accommodation: accommodation,
@@ -64,7 +60,7 @@ class Form extends Component {
         method: 'post',
         url: 'http://localhost:3001/api/helium',
         data: {
-        postTitle: title,
+        city: title,
         sightsee: sightsee,
         restaurant: restaurant,
         accommodation: accommodation,
@@ -89,7 +85,12 @@ class Form extends Component {
         <main>
           <form>
             <label>
-              Sightsee:
+              city:
+              <input type="text" id="title"/>
+            </label>
+            <br />
+            <label>
+              sightsee:
               <input type="text" id="sightsee"/>
             </label>
             <br />
@@ -125,7 +126,7 @@ class Form extends Component {
                 id="image"
               />
             </label>
-            <br /> 
+            <br />
             <input onClick={this.addVacationData.bind(this)} type="submit" value="Add Vacation Data" />
             <input onClick={this.updateVacationData.bind(this)} type="submit" value="Update Vacation Data" />
           </form>

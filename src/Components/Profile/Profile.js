@@ -7,6 +7,7 @@ class Profile extends Component {
     super(props)
     this.state = {
     things2do: []
+    // profileData: []
     }
   }
 
@@ -29,6 +30,13 @@ class Profile extends Component {
         });
 }
 
+// componentWillMount() {
+//   let profile = this.props.cityData.find(
+//     profile => profile.symbol === this.props.match.params.symbol
+//   ).then(this.setState({prordata : data}))
+  
+// }
+
   
   componentDidMount(){
     axios.get('http://localhost:3001/api/helium/things2do')
@@ -41,11 +49,14 @@ class Profile extends Component {
         
        })
   }
-
+  
   render() {
-    let profile = this.props.cityData.find(
-      profile => profile.symbol === this.props.match.params.symbol
-    )
+      //needs to be in lifecycle event componentWillMount (maybe componentDidMount)
+      //https://stackoverflow.com/questions/30929679/react-fetch-data-in-server-before-render
+      let profile = this.props.cityData.find(
+        profile => profile.symbol === this.props.match.params.symbol
+      )
+
     let things2do = this.state.things2do.map(item => {  
       return(
         <div>
@@ -58,6 +69,8 @@ class Profile extends Component {
         
       )
     })
+    console.log('test')
+
     return (
       <div>
         <p>{profile.city}</p>
@@ -66,7 +79,7 @@ class Profile extends Component {
         {things2do}
         <input type="submit" value="Delete Thing2do" onClick={this.deletethings2do.bind(this)}></input>
       </div>
-    );
+    )
   }
 }
 

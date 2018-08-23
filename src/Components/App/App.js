@@ -55,6 +55,7 @@ class App extends Component {
               )}
             />
             <Route
+              exact
               path="/see-vacations/:symbol"
               render={routerProps => (
                 <Profile {...routerProps} {...this.state} />
