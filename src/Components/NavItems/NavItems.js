@@ -10,6 +10,9 @@ class NavItems extends Component {
             <li>
               <Link to='/logout'>Log Out</Link>
             </li>
+            <li>
+              <Link to='/form-create/'>Create Form</Link>
+            </li>
           </ul>
         </div>
       )
