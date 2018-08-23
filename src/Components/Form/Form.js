@@ -34,7 +34,7 @@ class Form extends Component {
   // }
 
   addVacationData() {
-    var location = document.querySelector("#sightsee").value1;
+    var location = document.querySelector("#location").value1;
     var sightsee = document.querySelector("#sightsee").value;
     var restaurant = document.querySelector("#restaurant").value;
     var accommodation = document.querySelector("#accommodation").value;
