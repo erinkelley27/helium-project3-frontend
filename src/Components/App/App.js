@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Switch, Link } from 'react-router-dom'
 
+import Nav from '../Nav/Nav'
 import Home from '../Home/Home'
 import SeeVacations from '../SeeVacations/SeeVacations'
 import SignUpForm from '../SignUpForm/SignUpForm'
@@ -48,23 +49,7 @@ class App extends Component {
     return (
       <div className='App'>
         <nav>
-          <ul>
-            <li>
-              <Link to='/home'>Home</Link>
-            </li>
-            <li>
-              <Link to='/see-vacations'>See Vacations</Link>
-            </li>
-            <li>
-              <Link to='/signup'>Sign Up</Link>
-            </li>
-            <li>
-              <Link to='/logout'>Log Out</Link>
-            </li>
-            <li>
-              <Link to='/login'>Log In</Link>
-            </li>
-          </ul>
+          <Nav />
         </nav>
         <main>
           <Switch>
