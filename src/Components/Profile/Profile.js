@@ -48,16 +48,14 @@ class Profile extends Component {
         console.log(err);
       });
   }
-  
+
   render() {
-      //needs to be in lifecycle event componentWillMount (maybe componentDidMount)
-      //https://stackoverflow.com/questions/30929679/react-fetch-data-in-server-before-render
       let profile = this.props.cityData.find(
         profile => profile.symbol === this.props.match.params.symbol
       )
 
     let things2do = this.state.things2do.map(item => {  
-      return(
+      return (
         <div>
           <p>{item.sightsee}</p>
           <p>{item.restaurant}</p>
@@ -65,7 +63,6 @@ class Profile extends Component {
           <p>{item.romanticPlace}</p>
           <img src={item.image} />
         </div>
-        
       )
     })
     console.log('test')
@@ -82,7 +79,7 @@ class Profile extends Component {
           onClick={this.deletethings2do.bind(this)}
         />
       </div>
-    )
+    )}
   }
-}
+
 export default Profile;
