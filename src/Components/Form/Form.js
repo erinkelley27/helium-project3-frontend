@@ -17,10 +17,16 @@ class Form extends Component {
         image: String
       }
     };
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
   }
+  // updateVacationData(){
+  //   axios.put('/api/helium/'+this.props.match.params.id, { isbn, title, author, description, published_year, publisher })
+  //   .then((result) => {
+  //     this.props.history.push("/show/"+this.props.match.params.id)
+  //      });
+  //   }
+
   addVacationData() {
+    var location = document.querySelector("#sightsee").value1;
     var sightsee = document.querySelector("#sightsee").value;
     var restaurant = document.querySelector("#restaurant").value;
     var accommodation = document.querySelector("#accommodation").value;

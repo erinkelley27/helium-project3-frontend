@@ -6,38 +6,70 @@ class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedCity: this.props.match.params.symbol,
-      sightsee: [],
-      restaurant: [],
-      accommodation: [],
-      romanticPlace: [],
-      image: []
+      things2do: []
     };
   }
-  componentDidMount() {
-    axios.get("http://localhost:3001/api/helium/locations").then(response => {
-      this.setState({
-        sightsee: response.data.sightsee,
-        restaurant: response.data.restaurant,
-        accommodation: response.data.accommodation,
-        romanticPlace: response.data.romanticPlace,
-        image: response.data.image
+
+  deletethings2do() {
+    // var  input1 = document.querySelector('#one').value
+    // var input2 = document.querySelector('#two').value
+    // var input3 = document.querySelector('#three').value
+
+    axios({
+      method: "delete",
+      url: "http://localhost:3001/api/helium/things2do"
+    })
+      .then(function(response) {
+        //handle success
+        console.log(response);
+      })
+      .catch(function(response) {
+        //handle error
+        console.log(response);
       });
-      catch(err => {
+  }
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:3001/api/helium/things2do")
+      .then(response => {
+        this.setState({
+          things2do: response.data
+        });
+      })
+      .catch(err => {
         console.log(err);
       });
   }
 
   render() {
-    let sightsee = this.state.sightsee
-    let restaurant = this.state.restaurant
-    let accommodation = this.state.accommodation
-    let romanticPlace = this.state.romanticPlace
-    let image = this.state.image
+    let profile = this.props.cityData.find(
+      profile => profile.symbol === this.props.match.params.symbol
+    );
+    let things2do = this.state.things2do.map(item => {
+      return (
+        <div>
+          <p>{item.sightsee}</p>
+          <p>{item.restaurant}</p>
+          <p>{item.accommodation}</p>
+          <p>{item.romanticPlace}</p>
+          <img src={item.image} />
+        </div>
+      );
+    });
     return (
       <div>
-        <p>{things2do}</p>
+        <p>{profile.city}</p>
+        <img src={profile.image} />
+        <p>{profile.tagline}</p>
+        {things2do}
+        <input
+          type="submit"
+          value="Delete Thing2do"
+          onClick={this.deletethings2do.bind(this)}
+        />
       </div>
-    )}
+    );
   }
+}
 export default Profile;
