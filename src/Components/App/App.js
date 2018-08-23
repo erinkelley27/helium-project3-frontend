@@ -79,7 +79,9 @@ class App extends Component {
             />
             <Route
               path="/form-create/:symbol"
-              render={routerProps => <Form {...routerProps} {...this.state} />}
+              render={routerProps => (
+                <FormCreate {...routerProps} {...this.state} />
+              )}
             />
           </Switch>
         </main>
