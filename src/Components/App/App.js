@@ -7,8 +7,8 @@ import Home from '../Home/Home'
 import SeeVacations from '../SeeVacations/SeeVacations'
 import SignUpForm from '../SignUpForm/SignUpForm'
 import LogInForm from '../LogInForm/LogInForm'
-// import LogOut from '../LogOut/LogOut'
-// import Form from '../Form/Form'
+import LogOut from '../LogOut/LogOut'
+import Form from '../Form/Form'
 import './App.css'
 
 class App extends Component {
@@ -22,7 +22,7 @@ class App extends Component {
     this.handleInput = this.handleInput.bind(this)
     this.handleSignUp = this.handleSignUp.bind(this)
     this.handleLogIn = this.handleLogIn.bind(this)
-    // this.handleLogOut = this.handleLogOut.bind(this)
+    this.handleLogOut = this.handleLogOut.bind(this)
   }
 
   componentDidMount () {
@@ -35,6 +35,15 @@ class App extends Component {
         isLoggedIn: false
       })
     }
+  }
+
+  handleLogOut () {
+    this.setState({
+      email: '',
+      password: '',
+      isLoggedIn: false
+    })
+    localStorage.clear()
   }
 
   handleInput (e) {
@@ -102,14 +111,14 @@ class App extends Component {
                 )
               }}
             />
-            {/* <Route
+            <Route
               path='/logout'
               render={(props) => {
                 return (
                   <LogOut isLoggedIn={this.state.isLoggedIn} handleLogOut={this.handleLogOut} />
                 )
               }}
-            /> */}
+            />
           </Switch>
         </main>
       </div>
