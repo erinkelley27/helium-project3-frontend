@@ -20,7 +20,7 @@ class App extends Component {
       email: '',
       password: '',
       isLoggedIn: false,
-
+      cityData: []
     }
     this.handleInput = this.handleInput.bind(this)
     this.handleSignUp = this.handleSignUp.bind(this)
@@ -38,6 +38,19 @@ class App extends Component {
         isLoggedIn: false
       })
     }
+  }
+  componentWillMount() {
+    axios
+      .get("http://localhost:3001/api/helium/locations")
+      .then(res => {
+        console.log(res.data);
+        this.setState({
+          cityData: res.data
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   handleLogOut () {
@@ -95,8 +108,10 @@ class App extends Component {
             />
             <Route
               exact
-              path='/see-vacations'
-              render={() => <SeeVacations />}
+              path="/see-vacations"
+              render={routerProps => (
+                <SeeVacations {...routerProps} {...this.state} />
+              )}
             />
             <Route
               path='/signup'
@@ -105,6 +120,12 @@ class App extends Component {
                   <SignUpForm isLoggedIn={this.state.isLoggedIn} handleInput={this.handleInput} handleSignUp={this.handleSignUp} />
                 )
               }}
+            />
+             <Route
+              path="/see-vacations/:symbol"
+              render={routerProps => (
+                <Profile {...routerProps} {...this.state} />
+              )}
             />
             <Route
               path='/login'
