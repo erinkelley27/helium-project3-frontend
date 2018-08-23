@@ -12,17 +12,6 @@ class SeeVacations extends Component {
       cityData: []
     }
   }
-  componentDidMount () {
-    axios.get('http://localhost:3001/api/helium/locations')
-      .then((res) => {
-        console.log(res.data)
-        this.setState({
-          cityData: res.data
-        })
-      }).catch((err) => {
-        console.log(err)
-      })
-  }
 
   render () {
     let vacationOption = this.state.cityData.map(item => {
