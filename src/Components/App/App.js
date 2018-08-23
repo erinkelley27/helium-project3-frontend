@@ -5,6 +5,7 @@ import axios from 'axios'
 import Nav from '../Nav/Nav'
 import Home from '../Home/Home'
 import SeeVacations from '../SeeVacations/SeeVacations'
+import Profile from '../Profile/Profile'
 import SignUpForm from '../SignUpForm/SignUpForm'
 import LogInForm from '../LogInForm/LogInForm'
 import LogOut from '../LogOut/LogOut'
@@ -93,7 +94,7 @@ class App extends Component {
             <Route
               exact
               path='/see-vacations'
-              render={(routerProps) => <SeeVacations {...routerProps} {...this.state} />}
+              render={() => <SeeVacations />}
             />
             <Route
               path='/signup'

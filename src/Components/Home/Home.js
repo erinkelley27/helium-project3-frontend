@@ -8,7 +8,7 @@ class Home extends Component {
       <div>
         <h1> Welcome To Love Away Vacations</h1>
         <img
-          class='home'
+          className='home'
           src='https://s25.postimg.cc/8ly9s5kvj/article-barcelona.jpg'
         />
       </div>

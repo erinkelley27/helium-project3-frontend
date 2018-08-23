@@ -37,8 +37,12 @@ class SeeVacations extends Component {
           </div>
           <div className='profile-path'>
             <Route
-              path={'/see-vacations/:symbol'}
-              render={(routerProps) => <Profile {...routerProps} {...this.state} />}
+              path={'/see-vacations/' + item.symbol}
+              render={(props) => {
+                return (
+                  <Profile cityData={this.state.cityData} />
+                )
+              }}
             />
           </div>
         </div>
