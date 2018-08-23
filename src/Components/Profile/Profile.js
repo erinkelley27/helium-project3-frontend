@@ -23,7 +23,7 @@ class Profile extends Component {
         romanticPlace: response.data.romanticPlace,
         image: response.data.image
       });
-      .catch(err => {
+      catch(err => {
         console.log(err);
       });
   }
@@ -38,8 +38,6 @@ class Profile extends Component {
       <div>
         <p>{things2do}</p>
       </div>
-    );
+    )}
   }
-}
-
 export default Profile;
