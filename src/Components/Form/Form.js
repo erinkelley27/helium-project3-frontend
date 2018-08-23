@@ -18,12 +18,20 @@ class Form extends Component {
       }
     };
   }
-  // updateVacationData(){
-  //   axios.put('/api/helium/'+this.props.match.params.id, { isbn, title, author, description, published_year, publisher })
-  //   .then((result) => {
-  //     this.props.history.push("/show/"+this.props.match.params.id)
-  //      });
-  //   }
+  // updateVacationData() {
+  //   axios
+  //     .put("/api/helium/" + this.props.match.params.id, {
+  //       isbn,
+  //       title,
+  //       author,
+  //       description,
+  //       published_year,
+  //       publisher
+  //     })
+  //     .then(result => {
+  //       this.props.history.push("/show/" + this.props.match.params.id);
+  //     });
+  // }
 
   addVacationData() {
     var location = document.querySelector("#sightsee").value1;
