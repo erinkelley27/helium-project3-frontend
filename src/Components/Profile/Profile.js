@@ -7,14 +7,11 @@ class Profile extends Component {
     super(props)
     this.state = {
     things2do: []
-    // profileData: []
     }
   }
 
   deletethings2do(){
-    // var  input1 = document.querySelector('#one').value
-    // var input2 = document.querySelector('#two').value
-    // var input3 = document.querySelector('#three').value
+
 
     axios({
         method: 'delete',
@@ -30,12 +27,6 @@ class Profile extends Component {
         });
 }
 
-// componentWillMount() {
-//   let profile = this.props.cityData.find(
-//     profile => profile.symbol === this.props.match.params.symbol
-//   ).then(this.setState({prordata : data}))
-  
-// }
 
   
   componentDidMount(){
@@ -51,8 +42,6 @@ class Profile extends Component {
   }
   
   render() {
-      //needs to be in lifecycle event componentWillMount (maybe componentDidMount)
-      //https://stackoverflow.com/questions/30929679/react-fetch-data-in-server-before-render
       let profile = this.props.cityData.find(
         profile => profile.symbol === this.props.match.params.symbol
       )
