@@ -6,10 +6,11 @@ class Profile extends Component {
   constructor (props) {
     super(props)
     this.state = {
-    things2do: []
+    things2do: [],
+    profileInfo: []
     }
   }
-
+ 
   deletethings2do(){
     // var  input1 = document.querySelector('#one').value
     // var input2 = document.querySelector('#two').value
@@ -28,8 +29,16 @@ class Profile extends Component {
             console.log(response);
         });
 }
+componentWillMount(){
+  let profile = this.props.betterData.find(
+    profile => profile.symbol === this.props.match.params.symbol
+  ).then((response)=>{
+    this.setState({
+      profileInfo: response.data
+    })
+  }) 
+}
 
-  
   componentDidMount(){
     axios.get('http://localhost:3001/api/helium/things2do')
     .then((response)=>{
@@ -43,9 +52,7 @@ class Profile extends Component {
   }
 
   render() {
-    let profile = this.props.cityData.find(
-      profile => profile.symbol === this.props.match.params.symbol
-    )
+    let profile = this.state.profileInfo
     let things2do = this.state.things2do.map(item => {  
       return(
         <div>
