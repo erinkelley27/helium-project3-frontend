@@ -11,6 +11,7 @@ class FormCreate extends Component {
         </Link>
       );
     });
+
     return (
       <div>
         <h1>Add info on a city of your choice </h1>
