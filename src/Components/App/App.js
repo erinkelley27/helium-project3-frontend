@@ -5,9 +5,7 @@ import SeeVacations from "../SeeVacations/SeeVacations";
 import Profile from "../Profile/Profile";
 import axios from "axios";
 import FormCreate from "../FormCreate/FormCreate";
-
 import Form from "../Form/Form";
-// import seedData from "../data/data.json";
 import "./App.css";
 
 class App extends Component {
