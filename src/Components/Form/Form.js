@@ -1,13 +1,8 @@
-<<<<<<< HEAD
 import React, { Component } from "react";
 
 
 import axios from "axios";
 import './Form.css'
-=======
-import React, { Component } from 'react'
-import axios from 'axios'
->>>>>>> da7faa234576e37a60f41529505094a8c1f9e52c
 
 class Form extends Component {
   constructor (props) {
