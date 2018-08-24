@@ -9,9 +9,6 @@ class SignUpForm extends Component {
       <div className='signUpForm'>
         <form>
           <div>
-            <h3>Sign Up</h3>
-          </div>
-          <div>
             <label htmlFor='email'>Email</label>
             <input type='text' name='email' onChange={this.props.handleInput} />
           </div>
