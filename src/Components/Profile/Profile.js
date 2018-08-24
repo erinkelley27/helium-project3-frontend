@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 class Profile extends Component {
   constructor (props) {
@@ -63,7 +64,11 @@ class Profile extends Component {
         <img src={profile.image} />
         <p>{profile.tagline}</p>
         {things2do}
-        <input type="submit" value="Delete Thing2do" onClick={this.deletethings2do.bind(this)}></input>
+        <Link to={'/see-vacations/'}><input type="submit" value="DELETE" onClick={this.deletethings2do.bind(this)}></input></Link>
+   
+        <main>
+
+        </main>
       </div>
     );
   }
