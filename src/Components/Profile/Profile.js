@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import './Profile.css'
 
 class Profile extends Component {
   constructor (props) {
@@ -48,20 +49,25 @@ class Profile extends Component {
     )
     let things2do = this.state.things2do.map(item => {  
       return(
-        <div>
+        <div class="postBackground">
+        <h4> PostName</h4>
         <p>{item.sightsee}</p>
+        <h4> Best restaurants to Propose!</h4>
         <p>{item.restaurant}</p>
+        <h4> Best Accomodations for Love!</h4>
         <p>{item.accommodation}</p>
+        <h4> Best Romantic Spots to Make Memories!</h4>
         <p>{item.romanticPlace}</p>
+        <h4> Our Picture!</h4>
         <img src={item.image}></img>
         </div>
         
       )
     })
     return (
-      <div>
-        <p>{profile.city}</p>
-        <img src={profile.image} />
+      <div class="profileBackground">
+        <h1>{profile.city}</h1>
+        <img class="profileImage" src={profile.image} />
         <p>{profile.tagline}</p>
         {things2do}
         <Link to={'/see-vacations/'}><input type="submit" value="DELETE" onClick={this.deletethings2do.bind(this)}></input></Link>

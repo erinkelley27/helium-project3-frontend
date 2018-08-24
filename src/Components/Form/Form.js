@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 
 import axios from "axios";
+import './Form.css'
 
 class Form extends Component {
   constructor(props) {
@@ -85,12 +86,11 @@ class Form extends Component {
         <main>
           <form>
             <label>
-              city:
               <input type="text" id="title"/>
             </label>
             <br />
             <label>
-              sightsee:
+              PostName:
               <input type="text" id="sightsee"/>
             </label>
             <br />

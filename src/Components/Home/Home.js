@@ -7,11 +7,11 @@ class Home extends Component {
     return (
       <div className="Home-landing">
         <h1> Welcome To Love Away Vacations</h1>
-        <img
+       <Link to="/see-vacations"><img
           className="home"
           src="https://s25.postimg.cc/8ly9s5kvj/article-barcelona.jpg"
           atl="barcelona"
-        />
+        /></Link>
       </div>
     );
   }

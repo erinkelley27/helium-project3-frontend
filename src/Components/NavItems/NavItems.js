@@ -17,7 +17,7 @@ class NavItems extends Component {
       );
     } else {
       return (
-        <div className="nav">
+        <div>
           <div className="navNotLoggedIn">
             <ul>
               <li>

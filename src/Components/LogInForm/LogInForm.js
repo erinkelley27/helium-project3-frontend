@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Route, Switch, Link } from 'react-router-dom'
-
+import "./LoginForm.css";
 class LogInForm extends Component {
   render () {
     return (
+      <div>
+       <h3>Log In</h3>
       <div className='logInForm'>
-        <h2>Log In</h2>
         <form>
           <div>
             <label htmlFor='email'>Email</label>
@@ -17,6 +18,7 @@ class LogInForm extends Component {
           </div>
           <input type='submit' value='Submit' onClick={this.props.handleLogIn} />
         </form>
+      </div>
       </div>
     )
   }

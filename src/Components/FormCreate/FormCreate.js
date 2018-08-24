@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route, Switch, Link } from "react-router-dom";
-
+import './FormCreate.css'
 class FormCreate extends Component {
   render() {
     let formOption = this.props.cityData.map(item => {
@@ -13,8 +13,10 @@ class FormCreate extends Component {
     });
     return (
       <div>
-        <h1>Add info on a city of your choice </h1>
+      <h1>Add info on a city of your choice </h1>
+      <div class="formCreate">
         {formOption}
+      </div>
       </div>
     );
   }

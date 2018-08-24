@@ -1,0 +1,10 @@
+.profileImage{
+    border: 3px solid purple;
+    height: 350px;
+    width: 450px;
+}
+.formCreate{
+    background-color: rgba(245,245,220 ,.75 );
+    width: 600px;
+    margin: auto;
+}
