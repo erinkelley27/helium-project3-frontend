@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
+import './LogOut.css'
 
 class LogOut extends Component {
   render () {
     return (
       <div className='logOutForm'>
-        <h2>Log Out</h2>
+        <h3>Log Out</h3>
         <form>
-          <input type='submit' value='Log Out' onClick={this.props.handleLogOut} />
+          <input type='submit' value='Log Out' className='submit' onClick={this.props.handleLogOut} />
         </form>
       </div>
     )

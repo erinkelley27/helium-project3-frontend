@@ -5,14 +5,15 @@ class NavItems extends Component {
   render() {
     if (this.props.isLoggedIn) {
       return (
-        <div className="nav">
-          <div className="navLoggedIn">
-            <ul>
-              <li>
-                <Link to="/logout">Log Out</Link>
-              </li>
-            </ul>
-          </div>
+        <div className='navLoggedIn'>
+          <ul>
+            <li>
+              <Link to='/logout'>Log Out</Link>
+            </li>
+            <li>
+              <Link to='/form-create/'>Create Form</Link>
+            </li>
+          </ul>
         </div>
       );
     } else {

@@ -2,16 +2,16 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import axios from "axios";
 
-import Nav from "../Nav/Nav";
-import Home from "../Home/Home";
-import SeeVacations from "../SeeVacations/SeeVacations";
-import Profile from "../Profile/Profile";
-import SignUpForm from "../SignUpForm/SignUpForm";
-import FormCreate from "../FormCreate/FormCreate";
-import LogInForm from "../LogInForm/LogInForm";
-import LogOut from "../LogOut/LogOut";
-import Form from "../Form/Form";
-import "./App.css";
+import Nav from '../Nav/Nav'
+import Home from '../Home/Home'
+import SeeVacations from '../SeeVacations/SeeVacations'
+import Profile from '../Profile/Profile'
+import SignUpForm from '../SignUpForm/SignUpForm'
+import FormCreate from '../FormCreate/FormCreate'
+import LogInForm from '../LogInForm/LogInForm'
+import LogOut from '../LogOut/LogOut'
+import Form from '../Form/Form'
+import './App.css'
 
 class App extends Component {
   constructor() {
@@ -39,18 +39,18 @@ class App extends Component {
       });
     }
   }
-  componentWillMount() {
+  componentWillMount () {
     axios
-      .get("http://localhost:3001/api/helium/locations")
+      .get('https://helium-vacations.herokuapp.com/api/helium/locations')
       .then(res => {
-        console.log(res.data);
+        console.log(res.data)
         this.setState({
           cityData: res.data
-        });
+        })
       })
       .catch(err => {
-        console.log(err);
-      });
+        console.log(err)
+      })
   }
 
   handleLogOut() {
@@ -68,13 +68,12 @@ class App extends Component {
     });
   }
 
-  handleSignUp(e) {
-    e.preventDefault();
-    axios
-      .post("http://localhost:3001/user/signup", {
-        email: this.state.email,
-        password: this.state.password
-      })
+  handleSignUp (e) {
+    e.preventDefault()
+    axios.post('https://helium-vacations.herokuapp.com/user/signup', {
+      email: this.state.email,
+      password: this.state.password
+    })
       .then(response => {
         localStorage.token = response.data.token;
         this.setState({ isLoggedIn: true });
@@ -82,13 +81,12 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  handleLogIn(e) {
-    e.preventDefault();
-    axios
-      .post("http://localhost:3001/user/login", {
-        email: this.state.email,
-        password: this.state.password
-      })
+  handleLogIn (e) {
+    e.preventDefault()
+    axios.post('https://helium-vacations.herokuapp.com/user/login', {
+      email: this.state.email,
+      password: this.state.password
+    })
       .then(response => {
         localStorage.token = response.data.token;
         this.setState({ isLoggedIn: true });
@@ -107,7 +105,7 @@ class App extends Component {
             <Route path="/home" component={Home} />
             <Route
               exact
-              path="/see-vacations"
+              path='/see-vacations'
               render={routerProps => (
                 <SeeVacations {...routerProps} {...this.state} />
               )}
@@ -125,7 +123,7 @@ class App extends Component {
               }}
             />
             <Route
-              path="/see-vacations/:symbol"
+              path='/see-vacations/:symbol'
               render={routerProps => (
                 <Profile {...routerProps} {...this.state} />
               )}
@@ -156,14 +154,14 @@ class App extends Component {
 
             <Route
               exact
-              path="/form-create"
+              path='/form-create'
               render={routerProps => (
                 <FormCreate {...routerProps} {...this.state} />
               )}
             />
 
             <Route
-              path="/form-create/:symbol"
+              path='/form-create/:symbol'
               render={routerProps => <Form {...routerProps} {...this.state} />}
             />
           </Switch>
