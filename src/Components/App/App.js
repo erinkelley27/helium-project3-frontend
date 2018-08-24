@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom'
-import axios from 'axios'
+import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
+import axios from "axios";
 
 import Nav from '../Nav/Nav'
 import Home from '../Home/Home'
@@ -14,29 +14,29 @@ import Form from '../Form/Form'
 import './App.css'
 
 class App extends Component {
-  constructor () {
-    super()
+  constructor() {
+    super();
     this.state = {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       isLoggedIn: false,
       cityData: []
-    }
-    this.handleInput = this.handleInput.bind(this)
-    this.handleSignUp = this.handleSignUp.bind(this)
-    this.handleLogIn = this.handleLogIn.bind(this)
-    this.handleLogOut = this.handleLogOut.bind(this)
+    };
+    this.handleInput = this.handleInput.bind(this);
+    this.handleSignUp = this.handleSignUp.bind(this);
+    this.handleLogIn = this.handleLogIn.bind(this);
+    this.handleLogOut = this.handleLogOut.bind(this);
   }
 
-  componentDidMount () {
+  componentDidMount() {
     if (localStorage.token) {
       this.setState({
         isLoggedIn: true
-      })
+      });
     } else {
       this.setState({
         isLoggedIn: false
-      })
+      });
     }
   }
   componentWillMount () {
@@ -53,19 +53,19 @@ class App extends Component {
       })
   }
 
-  handleLogOut () {
+  handleLogOut() {
     this.setState({
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       isLoggedIn: false
-    })
-    localStorage.clear()
+    });
+    localStorage.clear();
   }
 
-  handleInput (e) {
+  handleInput(e) {
     this.setState({
       [e.target.name]: e.target.value
-    })
+    });
   }
 
   handleSignUp (e) {
@@ -75,10 +75,10 @@ class App extends Component {
       password: this.state.password
     })
       .then(response => {
-        localStorage.token = response.data.token
-        this.setState({ isLoggedIn: true })
+        localStorage.token = response.data.token;
+        this.setState({ isLoggedIn: true });
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
 
   handleLogIn (e) {
@@ -88,24 +88,21 @@ class App extends Component {
       password: this.state.password
     })
       .then(response => {
-        localStorage.token = response.data.token
-        this.setState({ isLoggedIn: true })
+        localStorage.token = response.data.token;
+        this.setState({ isLoggedIn: true });
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
 
-  render () {
+  render() {
     return (
-      <div className='App'>
-        <nav>
+      <div className="App">
+        <div className="nav">
           <Nav isLoggedIn={this.state.isLoggedIn} />
-        </nav>
+        </div>
         <main>
           <Switch>
-            <Route
-              path='/home'
-              component={Home}
-            />
+            <Route path="/home" component={Home} />
             <Route
               exact
               path='/see-vacations'
@@ -114,11 +111,15 @@ class App extends Component {
               )}
             />
             <Route
-              path='/signup'
-              render={(props) => {
+              path="/signup"
+              render={props => {
                 return (
-                  <SignUpForm isLoggedIn={this.state.isLoggedIn} handleInput={this.handleInput} handleSignUp={this.handleSignUp} />
-                )
+                  <SignUpForm
+                    isLoggedIn={this.state.isLoggedIn}
+                    handleInput={this.handleInput}
+                    handleSignUp={this.handleSignUp}
+                  />
+                );
               }}
             />
             <Route
@@ -128,19 +129,26 @@ class App extends Component {
               )}
             />
             <Route
-              path='/login'
-              render={(props) => {
+              path="/login"
+              render={props => {
                 return (
-                  <LogInForm isLoggedIn={this.state.isLoggedIn} handleInput={this.handleInput} handleLogIn={this.handleLogIn} />
-                )
+                  <LogInForm
+                    isLoggedIn={this.state.isLoggedIn}
+                    handleInput={this.handleInput}
+                    handleLogIn={this.handleLogIn}
+                  />
+                );
               }}
             />
             <Route
-              path='/logout'
-              render={(props) => {
+              path="/logout"
+              render={props => {
                 return (
-                  <LogOut isLoggedIn={this.state.isLoggedIn} handleLogOut={this.handleLogOut} />
-                )
+                  <LogOut
+                    isLoggedIn={this.state.isLoggedIn}
+                    handleLogOut={this.handleLogOut}
+                  />
+                );
               }}
             />
 
@@ -159,8 +167,8 @@ class App extends Component {
           </Switch>
         </main>
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;

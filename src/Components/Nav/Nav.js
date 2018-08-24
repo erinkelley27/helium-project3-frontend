@@ -1,26 +1,28 @@
-import React, { Component } from 'react'
-import { Route, Switch, Link } from 'react-router-dom'
-import NavItems from '../NavItems/NavItems'
+import React, { Component } from "react";
+import { Route, Switch, Link } from "react-router-dom";
+import NavItems from "../NavItems/NavItems";
 
 class Nav extends Component {
-  render () {
+  render() {
     return (
-      <div className='nav'>
+      <div className="nav">
         <ul>
           <li>
-            <Link to='/home'>Home</Link>
+            <Link to="/home">Home</Link>
           </li>
           <li>
-            <Link to='/see-vacations'>See Vacations</Link>
+            <Link to="/see-vacations">See Vacations</Link>
+          </li>
+          <li>
+            <NavItems isLoggedIn={this.props.isLoggedIn} />
           </li>
           <li>
             <Link to='/form-create'>Create Form</Link>
           </li>
         </ul>
-        <NavItems isLoggedIn={this.props.isLoggedIn} />
       </div>
-    )
+    );
   }
 }
 
-export default Nav
+export default Nav;
