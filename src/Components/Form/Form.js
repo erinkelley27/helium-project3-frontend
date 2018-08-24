@@ -25,7 +25,7 @@ class Form extends Component {
     var image = document.querySelector('#image').value
     axios({
       method: 'put',
-      url: 'http://localhost:3001/api/helium/things2do',
+      url: 'https://helium-vacations.herokuapp.com/helium/things2do',
       data: {
         city: title,
         sightsee: sightsee,
@@ -54,7 +54,7 @@ class Form extends Component {
     var image = document.querySelector('#image').value
     axios({
       method: 'post',
-      url: 'http://localhost:3001/api/helium',
+      url: 'https://helium-vacations.herokuapp.com/api/helium',
       data: {
         city: title,
         sightsee: sightsee,

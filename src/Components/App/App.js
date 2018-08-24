@@ -7,7 +7,7 @@ import Home from '../Home/Home'
 import SeeVacations from '../SeeVacations/SeeVacations'
 import Profile from '../Profile/Profile'
 import SignUpForm from '../SignUpForm/SignUpForm'
-import FormCreate from "../FormCreate/FormCreate";
+import FormCreate from '../FormCreate/FormCreate'
 import LogInForm from '../LogInForm/LogInForm'
 import LogOut from '../LogOut/LogOut'
 import Form from '../Form/Form'
@@ -19,7 +19,8 @@ class App extends Component {
     this.state = {
       email: '',
       password: '',
-      isLoggedIn: false
+      isLoggedIn: false,
+      cityData: []
     }
     this.handleInput = this.handleInput.bind(this)
     this.handleSignUp = this.handleSignUp.bind(this)
@@ -37,6 +38,19 @@ class App extends Component {
         isLoggedIn: false
       })
     }
+  }
+  componentWillMount () {
+    axios
+      .get('https://helium-vacations.herokuapp.com/api/helium/locations')
+      .then(res => {
+        console.log(res.data)
+        this.setState({
+          cityData: res.data
+        })
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   handleLogOut () {
@@ -56,7 +70,7 @@ class App extends Component {
 
   handleSignUp (e) {
     e.preventDefault()
-    axios.post('http://localhost:3001/user/signup', {
+    axios.post('https://helium-vacations.herokuapp.com/user/signup', {
       email: this.state.email,
       password: this.state.password
     })
@@ -69,7 +83,7 @@ class App extends Component {
 
   handleLogIn (e) {
     e.preventDefault()
-    axios.post('http://localhost:3001/user/login', {
+    axios.post('https://helium-vacations.herokuapp.com/user/login', {
       email: this.state.email,
       password: this.state.password
     })
@@ -95,7 +109,9 @@ class App extends Component {
             <Route
               exact
               path='/see-vacations'
-              render={() => <SeeVacations />}
+              render={routerProps => (
+                <SeeVacations {...routerProps} {...this.state} />
+              )}
             />
             <Route
               path='/signup'
@@ -104,6 +120,12 @@ class App extends Component {
                   <SignUpForm isLoggedIn={this.state.isLoggedIn} handleInput={this.handleInput} handleSignUp={this.handleSignUp} />
                 )
               }}
+            />
+            <Route
+              path='/see-vacations/:symbol'
+              render={routerProps => (
+                <Profile {...routerProps} {...this.state} />
+              )}
             />
             <Route
               path='/login'
@@ -124,14 +146,14 @@ class App extends Component {
 
             <Route
               exact
-              path="/form-create"
+              path='/form-create'
               render={routerProps => (
                 <FormCreate {...routerProps} {...this.state} />
               )}
             />
 
             <Route
-              path="/form-create/:symbol"
+              path='/form-create/:symbol'
               render={routerProps => <Form {...routerProps} {...this.state} />}
             />
           </Switch>

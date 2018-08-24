@@ -13,6 +13,9 @@ class Nav extends Component {
           <li>
             <Link to='/see-vacations'>See Vacations</Link>
           </li>
+          <li>
+            <Link to='/form-create'>Create Form</Link>
+          </li>
         </ul>
         <NavItems isLoggedIn={this.props.isLoggedIn} />
       </div>
