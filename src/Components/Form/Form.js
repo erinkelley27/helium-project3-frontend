@@ -28,7 +28,7 @@ class Form extends Component {
     var image = document.querySelector('#image').value
     axios({
       method: 'put',
-      url: 'https://helium-vacations.herokuapp.com/helium/things2do',
+      url: 'https://helium-vacations.herokuapp.com/api/helium/things2do',
       data: {
         city: title,
         sightsee: sightsee,
