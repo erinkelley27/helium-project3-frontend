@@ -1,11 +1,9 @@
-import React, { Component } from "react";
-
-
-import axios from "axios";
+import React, { Component } from 'react'
+import axios from 'axios'
 
 class Form extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
     this.state = {
       Location: String,
       Things2Do: {
@@ -16,18 +14,18 @@ class Form extends Component {
         romanticPlace: String,
         image: String
       }
-    };
+    }
   }
-  updateVacationData(){
+  updateVacationData () {
     var title = document.querySelector('#title').value
-    var  sightsee = document.querySelector('#sightsee').value
+    var sightsee = document.querySelector('#sightsee').value
     var restaurant = document.querySelector('#restaurant').value
     var accommodation = document.querySelector('#accommodation').value
     var romanticPlace = document.querySelector('#romanticPlace').value
     var image = document.querySelector('#image').value
     axios({
       method: 'put',
-      url: 'http://localhost:3001/api/helium/things2do',
+      url: 'https://helium-vacations.herokuapp.com/helium/things2do',
       data: {
         city: title,
         sightsee: sightsee,
@@ -37,29 +35,27 @@ class Form extends Component {
         image: image
       },
       config: { headers: {'Content-Type': 'multipart/form-data' }}
-      }).then(function (response) {
-        //handle success
-        console.log(response);
+    }).then(function (response) {
+      // handle success
+      console.log(response)
     })
-    .catch(function (response) {
-        //handle error
-        console.log(response);
-    });
+      .catch(function (response) {
+        // handle error
+        console.log(response)
+      })
+  }
 
-    }
-  
-  addVacationData(){
-    
+  addVacationData () {
     var title = document.querySelector('#title').value
-    var  sightsee = document.querySelector('#sightsee').value
+    var sightsee = document.querySelector('#sightsee').value
     var restaurant = document.querySelector('#restaurant').value
     var accommodation = document.querySelector('#accommodation').value
     var romanticPlace = document.querySelector('#romanticPlace').value
     var image = document.querySelector('#image').value
     axios({
-        method: 'post',
-        url: 'http://localhost:3001/api/helium',
-        data: {
+      method: 'post',
+      url: 'https://helium-vacations.herokuapp.com/api/helium',
+      data: {
         city: title,
         sightsee: sightsee,
         restaurant: restaurant,
@@ -67,72 +63,72 @@ class Form extends Component {
         romanticPlace: romanticPlace,
         image: image
       },
-        config: { headers: {'Content-Type': 'multipart/form-data' }}
-        })
-        .then(function (response) {
-            //handle success
-            console.log(response);
-        })
-        .catch(function (response) {
-            //handle error
-            console.log(response);
-        });
-}
+      config: { headers: {'Content-Type': 'multipart/form-data' }}
+    })
+      .then(function (response) {
+        // handle success
+        console.log(response)
+      })
+      .catch(function (response) {
+        // handle error
+        console.log(response)
+      })
+  }
 
-  render() {
+  render () {
     return (
-      <div className="App-post">
+      <div className='App-post'>
         <main>
           <form>
             <label>
               city:
-              <input type="text" id="title"/>
+              <input type='text' id='title' />
             </label>
             <br />
             <label>
               sightsee:
-              <input type="text" id="sightsee"/>
+              <input type='text' id='sightsee' />
             </label>
             <br />
             <label>
               Restaurant:
               <input
-              type="text"
-              id="restaurant"
+                type='text'
+                id='restaurant'
               />
             </label>
             <br />
             <label>
               Accomodation:
               <input
-                type="text"
-                id="accommodation"
+                type='text'
+                id='accommodation'
               />
             </label>
             <br />
             <label>
               A Romantic Place:
               <input
-                type="text"
-                id="romanticPlace"
-                
+                type='text'
+                id='romanticPlace'
+
               />
             </label>
             <br />
             <label>
               Image:
               <input
-                type="text"
-                id="image"
+                type='text'
+                id='image'
               />
             </label>
             <br />
-            <input onClick={this.addVacationData.bind(this)} type="submit" value="Add Vacation Data" />
-            <input onClick={this.updateVacationData.bind(this)} type="submit" value="Update Vacation Data" />
+            <input onClick={this.addVacationData.bind(this)} type='submit' value='Add Vacation Data' />
+            <input onClick={this.updateVacationData.bind(this)} type='submit' value='Update Vacation Data' />
           </form>
         </main>
       </div>
-    );
+    )
   }
 }
-export default Form;
+export default Form

@@ -1,0 +1,15 @@
+.signUpForm {
+    margin: 100px 25% 0px 25%;
+    border: solid black 5px;
+}
+
+label {
+    font-size: 36px;
+}
+
+.submit {
+    padding: 25px;
+    background: green;
+    font-size: 24px;
+    color: black;
+}

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Route, Switch, Link } from 'react-router-dom'
+import './LogInForm.css'
 
 class LogInForm extends Component {
   render () {
     return (
       <div className='logInForm'>
-        <h2>Log In</h2>
+        <h3>Log In</h3>
         <form>
           <div>
             <label htmlFor='email'>Email</label>
@@ -15,7 +15,7 @@ class LogInForm extends Component {
             <label htmlFor='password'>Password</label>
             <input type='text' name='password' onChange={this.props.handleInput} />
           </div>
-          <input type='submit' value='Submit' onClick={this.props.handleLogIn} />
+          <input type='submit' value='Submit' className='submit' onClick={this.props.handleLogIn} />
         </form>
       </div>
     )
