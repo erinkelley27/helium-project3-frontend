@@ -2,18 +2,43 @@
   text-align: center;
 }
 
+a{
+  font-size: 20px;
+}
+a:hover{
+  color: purple;
+}
+
 body {
   background-color: #92ddce;
   color: #bb9677;
+  background-image: url("http://2.bp.blogspot.com/-sITldZ_cfYI/UeqS_mjdmsI/AAAAAAAAVAo/zbH1FryjCGU/s1600/yy___a5b96_34335383_L.png");
+  font-family: 'Uncial Antiqua', cursive;
 }
 
 h1 {
+  background-color: rgba(57, 59, 234, 0.33);
+  width: 600px;
+  margin: auto;
+  margin-top: 50px;
   font-size: 45px;
-  color: #bb9677;
+  color: whitesmoke;
+  font-family: 'Uncial Antiqua', cursive;
 }
 
 h2 {
-  font-size: 35px;
+  font-size: 25px;
+  background-color: rgba(57, 59, 234, 0.33);
+  margin: auto;
+  margin-top: 50px;
+  font-family: 'Uncial Antiqua', cursive;
+}
+h3{
+  background-color: rgba(57, 59, 234, 0.33);
+  width: 600px;
+  margin: auto;
+  margin-top: 50px;
+  font-family: 'Uncial Antiqua', cursive;
 }
 
 .App-logo {
@@ -36,9 +61,10 @@ h2 {
   font-size: large;
 }
 
-.nav {
-  background-color: white;
-  display: inline-flex;
+.nav{
+  background-color: beige;
+  border: 1px solid purple;
+  display: flex;
 }
 
 @keyframes App-logo-spin {

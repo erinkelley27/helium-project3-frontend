@@ -1,0 +1,25 @@
+.profileImage{
+    border: 3px solid purple;
+    height: 350px;
+    width: 450px;
+}
+.profileBackground{
+    background-color: rgba(245,245,220 ,.75 );
+    width: 600px;
+    margin: auto;
+}
+.postBackground{
+    padding-top: 20px;
+    background-color: rgba(220, 223, 245, 0.75);
+    width: 600px;
+    margin: auto;
+    margin-top: 50px;
+}
+h4{
+    font-size: 20px;
+    color: lightcoral;
+}
+p{
+    font-size: 15px;
+    color: purple;
+}

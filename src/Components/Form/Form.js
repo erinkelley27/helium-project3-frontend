@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-
-
 import axios from "axios";
 
 class Form extends Component {
@@ -18,16 +16,16 @@ class Form extends Component {
       }
     };
   }
-  updateVacationData(){
-    var title = document.querySelector('#title').value
-    var  sightsee = document.querySelector('#sightsee').value
-    var restaurant = document.querySelector('#restaurant').value
-    var accommodation = document.querySelector('#accommodation').value
-    var romanticPlace = document.querySelector('#romanticPlace').value
-    var image = document.querySelector('#image').value
+  updateVacationData() {
+    var title = document.querySelector("#title").value;
+    var sightsee = document.querySelector("#sightsee").value;
+    var restaurant = document.querySelector("#restaurant").value;
+    var accommodation = document.querySelector("#accommodation").value;
+    var romanticPlace = document.querySelector("#romanticPlace").value;
+    var image = document.querySelector("#image").value;
     axios({
-      method: 'put',
-      url: 'http://localhost:3001/api/helium/things2do',
+      method: "put",
+      url: "https://helium-vacations.herokuapp.com/helium/things2do",
       data: {
         city: title,
         sightsee: sightsee,
@@ -36,30 +34,29 @@ class Form extends Component {
         romanticPlace: romanticPlace,
         image: image
       },
-      config: { headers: {'Content-Type': 'multipart/form-data' }}
-      }).then(function (response) {
-        //handle success
-        console.log(response);
+      config: { headers: { "Content-Type": "multipart/form-data" } }
     })
-    .catch(function (response) {
-        //handle error
+      .then(function(response) {
+        // handle success
         console.log(response);
-    });
+      })
+      .catch(function(response) {
+        // handle error
+        console.log(response);
+      });
+  }
 
-    }
-  
-  addVacationData(){
-    
-    var title = document.querySelector('#title').value
-    var  sightsee = document.querySelector('#sightsee').value
-    var restaurant = document.querySelector('#restaurant').value
-    var accommodation = document.querySelector('#accommodation').value
-    var romanticPlace = document.querySelector('#romanticPlace').value
-    var image = document.querySelector('#image').value
+  addVacationData() {
+    var title = document.querySelector("#title").value;
+    var sightsee = document.querySelector("#sightsee").value;
+    var restaurant = document.querySelector("#restaurant").value;
+    var accommodation = document.querySelector("#accommodation").value;
+    var romanticPlace = document.querySelector("#romanticPlace").value;
+    var image = document.querySelector("#image").value;
     axios({
-        method: 'post',
-        url: 'http://localhost:3001/api/helium',
-        data: {
+      method: "post",
+      url: "https://helium-vacations.herokuapp.com/api/helium",
+      data: {
         city: title,
         sightsee: sightsee,
         restaurant: restaurant,
@@ -67,17 +64,17 @@ class Form extends Component {
         romanticPlace: romanticPlace,
         image: image
       },
-        config: { headers: {'Content-Type': 'multipart/form-data' }}
-        })
-        .then(function (response) {
-            //handle success
-            console.log(response);
-        })
-        .catch(function (response) {
-            //handle error
-            console.log(response);
-        });
-}
+      config: { headers: { "Content-Type": "multipart/form-data" } }
+    })
+      .then(function(response) {
+        // handle success
+        console.log(response);
+      })
+      .catch(function(response) {
+        // handle error
+        console.log(response);
+      });
+  }
 
   render() {
     return (
@@ -85,50 +82,44 @@ class Form extends Component {
         <main>
           <form>
             <label>
-              city:
-              <input type="text" id="title"/>
+              <input type="text" id="title" />
             </label>
             <br />
             <label>
-              sightsee:
-              <input type="text" id="sightsee"/>
+              PostName:
+              <input type="text" id="sightsee" />
             </label>
             <br />
             <label>
               Restaurant:
-              <input
-              type="text"
-              id="restaurant"
-              />
+              <input type="text" id="restaurant" />
             </label>
             <br />
             <label>
               Accomodation:
-              <input
-                type="text"
-                id="accommodation"
-              />
+              <input type="text" id="accommodation" />
             </label>
             <br />
             <label>
               A Romantic Place:
-              <input
-                type="text"
-                id="romanticPlace"
-                
-              />
+              <input type="text" id="romanticPlace" />
             </label>
             <br />
             <label>
               Image:
-              <input
-                type="text"
-                id="image"
-              />
+              <input type="text" id="image" />
             </label>
             <br />
-            <input onClick={this.addVacationData.bind(this)} type="submit" value="Add Vacation Data" />
-            <input onClick={this.updateVacationData.bind(this)} type="submit" value="Update Vacation Data" />
+            <input
+              onClick={this.addVacationData.bind(this)}
+              type="submit"
+              value="Add Vacation Data"
+            />
+            <input
+              onClick={this.updateVacationData.bind(this)}
+              type="submit"
+              value="Update Vacation Data"
+            />
           </form>
         </main>
       </div>
