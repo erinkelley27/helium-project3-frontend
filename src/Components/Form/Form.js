@@ -125,8 +125,8 @@ class Form extends Component {
               />
             </label>
             <br />
-            <input onClick={this.addVacationData.bind(this)} type='submit' value='Add Vacation Data' />
-            <input onClick={this.updateVacationData.bind(this)} type='submit' value='Update Vacation Data' />
+            <Link to="/see-vacations"><input onClick={this.addVacationData.bind(this)} type='submit' value='Add Vacation Data' /></Link>
+            <Link to="/see-vacations"><input onClick={this.updateVacationData.bind(this)} type='submit' value='Update Vacation Data' /></Link>
           </form>
         </main>
       </div>
