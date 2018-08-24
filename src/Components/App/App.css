@@ -1,14 +1,18 @@
 .App {
   text-align: center;
 }
-body{
-  background-color: blue;
-  color: yellow;
+
+body {
+  background-color: #92ddce;
+  color: #bb9677;
 }
-h1{
+
+h1 {
   font-size: 45px;
+  color: #bb9677;
 }
-h2{
+
+h2 {
   font-size: 35px;
 }
 
@@ -21,7 +25,7 @@ h2{
   background-color: #222;
   height: 150px;
   padding: 20px;
-  color: white;
+  color: #bb9677;
 }
 
 .App-title {
@@ -32,7 +36,16 @@ h2{
   font-size: large;
 }
 
+.nav {
+  background-color: white;
+  display: inline-flex;
+}
+
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
