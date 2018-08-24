@@ -16,6 +16,9 @@ class Nav extends Component {
           <li>
             <NavItems isLoggedIn={this.props.isLoggedIn} />
           </li>
+          <li>
+            <Link to='/form-create'>Create Form</Link>
+          </li>
         </ul>
       </div>
     );
