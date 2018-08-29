@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Route, Switch, Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Route, Switch, Link } from 'react-router-dom';
 import './FormCreate.css'
 class FormCreate extends Component {
   render () {
@@ -13,12 +13,12 @@ class FormCreate extends Component {
     })
     return (
       <div>
-      <h1>Add info on a city of your choice </h1>
-      <div class="formCreate">
-        {formOption}
+        <h1>Add info on a city of your choice </h1>
+        <div class='formCreate'>
+          {formOption}
+        </div>
       </div>
-      </div>
-    );
+    )
   }
 }
 
